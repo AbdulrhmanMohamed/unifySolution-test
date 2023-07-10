@@ -2,6 +2,8 @@ import  'colors'
 import express, { NextFunction, Request, Response } from 'express'
 import dotenv from 'dotenv'
 import path from 'path'
+import cors from 'cors'
+import morgan from 'morgan'
 // import { DbConnection } from './dbConnection/db.connection'
 import { CustomError } from './Custom/CustomError'
 import { DbConnection } from './dbConnection/db.connection'
@@ -12,7 +14,9 @@ const app=express();
 
 // middle Wares 
 app.use(express.json())
-// app.use(express.urlencoded({extended:true}))
+app.use(express.urlencoded({extended:true}))
+app.use(cors())
+app.use(morgan('dev'))
 
 // routes 
 app.use(`${process.env.PREFIX_API}/user`,userRoutes)
@@ -29,13 +33,19 @@ process.on('unhandledRejection',(error,promise)=>{
 })
 app.all('*',(req:Request,res:Response,next:NextFunction)=>{
     const error=new CustomError(`un Handled Route : ${req.originalUrl}`,400)
-
+    
     next(error)
 })
 
 // global error handler
 app.use((error:CustomError,req:Request,res:Response)=>{
-    return res.status(error.statusCode || 500).send(error)
+   
+   
+    return res.status(error.statusCode || 500).send({
+        error:error.name,
+        reason:error.stack,
+        statusCode:error.statusCode
+    })
 })
 const port=process.env.PORT ||3000;
 

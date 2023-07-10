@@ -5,12 +5,13 @@ import * as bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
 
 export const singUp=asyncHandler(async(req:Request,res:Response)=>{
-   const userExist=await User.findOne({email:req.body.eamil})
+   const userExist=await User.findOne({email:req.body.email})
+   console.log('userExist: ',userExist)
    if(userExist){
     return res.status(400).send("user Already Exist")
    }else{
 
-       const user= new User({...req.body});
+       const user= await User.create({...req.body})
 
        await user.save();
        res.status(201).send({message:"User Created Successfully",user})

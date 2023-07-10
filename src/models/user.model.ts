@@ -1,7 +1,6 @@
 import Joi from "joi";
 import mongoose from "mongoose";
 import * as bcrypt from 'bcryptjs'
-import jwt from 'jsonwebtoken'
 export  interface IUser{
     userName:string;
     email:string;
@@ -12,15 +11,18 @@ export const userSchema=new mongoose.Schema({
 
     userName:{
         type:String,
-        required:true,
+       
+        
     },
     password:{
         type:String,
         required:true,
+  
     },
     email:{
         type:String,
-        required:true,
+       
+        
     },
 
 })
@@ -28,7 +30,7 @@ export const userSchema=new mongoose.Schema({
 userSchema.pre('save',function(){
     
     if(this.isModified('password')){
-        this.password=bcrypt.hashSync(this.password,10)
+        this.password=bcrypt.hashSync(this.password!,10)
     }
 
     
@@ -45,7 +47,7 @@ export const userValidation=(user:IUser,reqType:string)=>{
         userName:Joi.string().alter({
             post:schema=>schema.required(),
         }),
-        email:Joi.string().alter({
+        email:Joi.string().email().alter({
             post:schema=>schema.required(),
         }),
         password:Joi.string().alter({

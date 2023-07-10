@@ -1,0 +1,296 @@
+{
+	"info": {
+		"_postman_id": "301a5526-d972-44d6-913e-3f0f4c69f91a",
+		"name": "unifySolution",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19075964",
+		"_collection_link": "https://winter-robot-532831.postman.co/workspace/Sari-Env~35378cc6-d0ad-4141-82ed-2710504912db/collection/19075964-301a5526-d972-44d6-913e-3f0f4c69f91a?action=share&creator=19075964&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n \"email\":\"user1@email.co\",\r\n \"password\":\"123123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/unifySolution/api/v1/user/login",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"unifySolution",
+								"api",
+								"v1",
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "login-success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n \"email\":\"user1@email.com\",\r\n \"password\":\"123123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/unifySolution/api/v1/user/login",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"unifySolution",
+										"api",
+										"v1",
+										"user",
+										"login"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "login-error",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n \"email\":\"user1@email.co\",\r\n \"password\":\"123123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/unifySolution/api/v1/user/login",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"unifySolution",
+										"api",
+										"v1",
+										"user",
+										"login"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userName\":\"user1\",\r\n    \"email\":\"user2@email.com\",\r\n    \"password\":\"123123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/unifySolution/api/v1/user",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"unifySolution",
+								"api",
+								"v1",
+								"user"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "todo",
+			"item": [
+				{
+					"name": "createTodo",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\":\"todo3\",\r\n    \"description\":\"desc of todo 3\",\r\n    \"user\":\"64ac6c86b47784f18bd1fede\",\r\n    \"status\":\"inactive\"\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/unifySolution/api/v1/todo",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"unifySolution",
+								"api",
+								"v1",
+								"todo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllUserTodos",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGFjNmE2MTZjYTAxNTc5OTQ3MzAyNzgiLCJlbWFpbCI6InVzZXIxQGVtYWlsLmNvbSIsImlhdCI6MTY4OTAyMjgzMX0.DcAdlCqgJhwWNj0WWlzxJGnNbt31TgEanBP4Am7UXu4",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/unifySolution/api/v1/todo/",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"unifySolution",
+								"api",
+								"v1",
+								"todo",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getTodoById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/unifySolution/api/v1/todo/64ac70b311e99d114c39eb8a",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"unifySolution",
+								"api",
+								"v1",
+								"todo",
+								"64ac70b311e99d114c39eb8a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateTodo",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGFjNmE2MTZjYTAxNTc5OTQ3MzAyNzgiLCJlbWFpbCI6InVzZXIxQGVtYWlsLmNvbSIsImlhdCI6MTY4OTAyMjgzMX0.DcAdlCqgJhwWNj0WWlzxJGnNbt31TgEanBP4Am7UXu4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\":\"inprogress\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/unifySolution/api/v1/todo/64ac72b8292c5e0cbc000960",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"unifySolution",
+								"api",
+								"v1",
+								"todo",
+								"64ac72b8292c5e0cbc000960"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteTodo",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGFjNmE2MTZjYTAxNTc5OTQ3MzAyNzgiLCJlbWFpbCI6InVzZXIxQGVtYWlsLmNvbSIsImlhdCI6MTY4OTAyMjgzMX0.DcAdlCqgJhwWNj0WWlzxJGnNbt31TgEanBP4Am7UXu4",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/unifySolution/api/v1/todo/64ac72b8292c5e0cbc000960",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"unifySolution",
+								"api",
+								"v1",
+								"todo",
+								"64ac72b8292c5e0cbc000960"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
