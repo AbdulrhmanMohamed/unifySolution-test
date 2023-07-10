@@ -49,9 +49,19 @@ export const updateTodo=asyncHandler(async(req:Request,res:Response)=>{
     if(todo){
       return res.status(200).send({message:"todo deleted Successfully",todo})
     }else{
-      return res.status(400).send({message:"todos Not Found"})
+      return res.status(400).send({message:"todo Not Found"})
     }
   })
 
 
-  
+  export const getAllTodos=asyncHandler(async(req:Request,res:Response)=>{
+
+    
+    const todos=await Todo.find({user:req.params.id})
+    if(todos[0]){
+      return res.status(200).send({message:"todos fetched Successfully",todos})
+    }else{
+      return res.status(400).send({message:"todos Not Found"})
+    }
+  })
+

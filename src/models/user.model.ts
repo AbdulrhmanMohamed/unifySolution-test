@@ -36,7 +36,6 @@ userSchema.pre('save',function(){
 
 
 
-
 export const User=mongoose.model('user',userSchema)
 
 
