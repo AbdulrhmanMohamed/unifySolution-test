@@ -1,11 +1,12 @@
 import express from 'express'
 import { validate } from '../middleWares/validator.middleWare';
 import { todoValidation } from '../models/todo.model';
-import { createTodo, deleteTodo, getTodoInfo, updateTodo } from '../controllers/todo.controller';
+import { createTodo, deleteTodo, getAllTodos, getTodoInfo, updateTodo } from '../controllers/todo.controller';
 
 
 const router=express.Router();
 router.route('/').post(validate(todoValidation,'post'),createTodo)
+.get(getAllTodos)
 
 
 router.route('/:id').
