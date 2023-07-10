@@ -1,5 +1,4 @@
 import mongoose from 'mongoose'
-import mongose from 'mongoose'
 
 export const DbConnection=()=>{
     mongoose.connect(process.env.MONGO_URL!).then( ()=>{
